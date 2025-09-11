@@ -891,3 +891,14 @@ class Pro450Client(CloseLoop):
                 7: All logs
         """
         return self._mesg(ProtocolCode.GET_DEBUG_LOG_MODE)
+
+    def go_home(self, speed=20, _async=False):
+        """Control the machine to return to the zero position.
+
+        Args:
+            speed (int): 1 ~ 100
+        Return:
+            1 : All motors return to zero position.
+            0 : failed.
+        """
+        return self.send_angles([0, 0, 0, 0, 0, 0], speed, _async=_async)
