@@ -118,7 +118,7 @@ class MyCobot320(CommandGenerator):
         import serial
         self._serial_port = serial.Serial()
         self._serial_port.port = port
-        self._serial_port.baudrate = baudrate
+        self._serial_port.baudrate = baudrate # type: ignore
         self._serial_port.timeout = timeout
         self._serial_port.rts = False
         self._serial_port.open()
